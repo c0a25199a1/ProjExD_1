@@ -32,20 +32,19 @@ def main():
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            h = -1
+            bird_rct.centery += 1
         if key_lst[pg.K_DOWN]:
-            h = 1
+            bird_rct.centery -= 1
         if key_lst[pg.K_RIGHT]:
-            w = 2
+            bird_rct.centerx += 2
         if key_lst[pg.K_LEFT]:
-            w = -1
-
+            bird_rct.centerx -= 1
 
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img_flip,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
 
-        bird_rct.move_ip(w-1,h)
+        bird_rct.move_ip(-1,0)
         screen.blit(bird_image,bird_rct)
 
         pg.display.update()
