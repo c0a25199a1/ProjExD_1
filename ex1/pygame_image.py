@@ -33,7 +33,7 @@ def main():
         if key_lst[pg.K_DOWN]:
             bird_rct.move_ip((0,1))
         if key_lst[pg.K_RIGHT]:
-            bird_rct.move_ip((1,0))
+            bird_rct.move_ip((2,0))
         if key_lst[pg.K_LEFT]:
             bird_rct.move_ip((-1,0))
 
@@ -41,7 +41,8 @@ def main():
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img_flip,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
-        
+
+        bird_rct.move_ip(-1,0)
         screen.blit(bird_image,bird_rct)
 
         pg.display.update()
