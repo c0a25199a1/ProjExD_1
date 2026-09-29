@@ -24,25 +24,28 @@ def main():
     tmr = 0
     while True:
         x = tmr%3200
+        w = 0
+        h = 0
+
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            bird_rct.move_ip((0,-1))
+            h = -1
         if key_lst[pg.K_DOWN]:
-            bird_rct.move_ip((0,1))
+            h = 1
         if key_lst[pg.K_RIGHT]:
-            bird_rct.move_ip((2,0))
+            w = 2
         if key_lst[pg.K_LEFT]:
-            bird_rct.move_ip((-1,0))
+            w = -1
 
 
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img_flip,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
 
-        bird_rct.move_ip(-1,0)
+        bird_rct.move_ip(w-1,h)
         screen.blit(bird_image,bird_rct)
 
         pg.display.update()
