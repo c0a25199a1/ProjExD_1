@@ -11,7 +11,6 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
     bg_img_flip = pg.transform.flip(bg_img,True,False)
-    count = 0
 
     #こうかとん
     bird_image = pg.image.load("fig/3.png")
@@ -19,16 +18,15 @@ def main():
     
     tmr = 0
     while True:
-        x = tmr
-
+        x = tmr%3200
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img_flip,[-x+1600,0])
+        screen.blit(bg_img,[-x+3200,0])
         screen.blit(bird_image,[300,200])
         pg.display.update()
-        tmr += 1        
-        count += 1
+        tmr += 1   
         clock.tick(200)
 
 
